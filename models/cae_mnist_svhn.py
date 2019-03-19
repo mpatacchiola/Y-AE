@@ -202,7 +202,6 @@ class Autoencoder:
             #self.loss_reconstruction_left = tf.reduce_mean(tf.abs(tf.subtract(self.x, self.left_output))) #L1 loss (sharper)
             self.loss_reconstruction_left = tf.reduce_mean(tf.square(tf.subtract(self.x, self.left_output))) #L2 loss (sharper)
             
-
             ##STYLE-CONSISTENCY LOSS
             self.loss_style_consistency = tf.reduce_mean(tf.norm(tf.subtract(self.right_code_style, self.left_code_style)+1.0e-15, ord=2, axis=1)) #adding small value for stability (gradient of sqrt(0) is infinite)
 
@@ -258,7 +257,17 @@ class Autoencoder:
         output = sess.run([self.output], feed_dict={self.x: input_feature})
         return output
 
-    def test(self, sess, input_features, input_labels, lambda_e, lambda_i):
+    def forward_conditional(self, sess, input_features, input_labels):
+        '''Forward step conditioned on the labels
+        @param sess (tf.Session) the current session
+        @param input_feature (np.array) matrix or array of feature
+        @param input_labels
+        @return (float) the output
+        '''
+        output = sess.run([self.left_output], feed_dict={self.x: input_features, self.labels_placeholder: input_labels})
+        return output[0]
+        
+    def test(self, sess, input_features, input_labels):
         '''Single step test of the autoencoder
         @param sess (tf.Session) the current session
         @param input_feature (np.array) matrix or array of feature

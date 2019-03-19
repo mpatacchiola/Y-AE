@@ -272,6 +272,16 @@ class Autoencoder:
         output = sess.run([self.output], feed_dict={self.x: input_feature})
         return output
 
+    def forward_conditional(self, sess, input_features, input_labels, lambda_e, lambda_i):
+        '''Forward step conditioned on the labels
+        @param sess (tf.Session) the current session
+        @param input_feature (np.array) matrix or array of feature
+        @param input_labels
+        @return (float) the output
+        '''
+        output = sess.run([self.left_output], feed_dict={self.x: input_features, self.labels_placeholder: input_labels})
+        return output[0]
+        
     def test(self, sess, input_features, input_labels, lambda_e, lambda_i):
         '''Single step test of the autoencoder
         @param sess (tf.Session) the current session

@@ -111,7 +111,7 @@ class Dataset():
     def return_features_labels(self, batch_size, onehot=True):
         indices = np.random.randint(0, self.size, size=batch_size)
         if(onehot):
-            values = self.labels[indices]
+            values = (self.labels[indices]).astype(np.int32)
             labels = np.zeros([batch_size, self.tot_labels], dtype=np.float32)
             arange = np.arange(batch_size)
             labels[arange, values] = 1.0       
