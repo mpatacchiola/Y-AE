@@ -43,7 +43,7 @@ def main():
         learning_rate = 0.0001
         mini_batch_size = 128
         tot_labels = 10
-        tot_epochs = 100
+        tot_epochs = 20 #non-regularized: 100; regularized: 30
         dataset_size = 60000
         tot_iterations = int((dataset_size / mini_batch_size) * tot_epochs)
         save_every_iteration = tot_iterations-1
@@ -121,7 +121,7 @@ def main():
                                          ksize=(3,3), start_iteration=args.start_iteration, dir_header=simulation_path)
     elif(args.arch=="cae" and args.dataset=="mnist"):
             from models.cae_mnist_svhn import Autoencoder
-            my_net = Autoencoder(batch_size=mini_batch_size, channels=1, conv_filters=8, style_size=32, content_size=10, 
+            my_net = Autoencoder(batch_size=mini_batch_size, channels=1, conv_filters=8, style_size=16, content_size=10, 
                                          ksize=(3,3), start_iteration=args.start_iteration, dir_header=simulation_path)
     elif(args.arch=="lenet" and args.dataset=="mnist"):
             from models.lenet_mnist_svhn import LeNet

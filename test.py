@@ -67,7 +67,7 @@ def main():
         dataset_test.load(features_path, labels_path, tot_labels, normalizer=255.0, shuffle=False, verbose=True)
         if(args.arch=="cae"):
             from models.cae_mnist_svhn import Autoencoder
-            my_net = Autoencoder(batch_size=mini_batch_size, channels=1, conv_filters=8, style_size=32, content_size=10, 
+            my_net = Autoencoder(batch_size=mini_batch_size, channels=1, conv_filters=8, style_size=16, content_size=10, 
                                  ksize=(3,3), start_iteration=0, dir_header=simulation_path)
         elif(args.arch=="yae"):
             from models.yae_mnist_svhn import Autoencoder
@@ -165,7 +165,7 @@ def main():
             text_file.write(header + '\n' + str(loss)+","+ str(loss_r)+","+str(loss_c)+","+str(acc_c)+","+str(loss_e)+","+ str(loss_i))
     elif((args.arch=="cae" or args.arch=="yae") and args.dataset=="mnist" and args.type=="gendata"):            
         print("Starting gendata...")
-        input_features, _ = dataset_test.return_features_labels(10000, onehot=False)
+        input_features, _ = dataset_test.return_features_labels(10000, onehot=False, shuffle=False)
         features_list = list()
         labels_list = list()
         for i in range(0, 10):

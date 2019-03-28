@@ -41,7 +41,7 @@ class Autoencoder:
         weight_initializer = None #tf.truncated_normal_initializer(mean=0.0, stddev=0.03) #None
         weight_initializer_implicit = None # tf.random_normal_initializer(mean=0.0, stddev=0.01) #None
         bias_initializer_implicit = None #tf.constant_initializer(-5.0)
-        regularizer = None #tf.contrib.layers.l2_regularizer(0.01) #None
+        regularizer = tf.contrib.layers.l2_regularizer(0.00001) #None
 
         with tf.variable_scope("Input", reuse=False):
             # x is (32 x 32 x 3)
