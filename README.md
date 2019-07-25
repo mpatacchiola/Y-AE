@@ -1,7 +1,15 @@
-Y-Autoencoders: disentangling latent representations via sequential-encoding
-----------------------------------------------------------------------------
 
-This code allows reproducing the quantitative results reported in the paper. In particular the ablation experiment (Section 3.2) and the comparison against baselines experiment (Section 3.3). The code has been tested on `Ubuntu 18.04.2 LTS`, with `Python 2.7` , `Tensorflow 1.10` and `Numpy 1.15.1`. In the test phase `OpenCV 3.4.3.18` and `Scikit-image 0.14.2` have been used to manipulate and visualize the samples. Even though the training and test has been performend on the GeForce GTX 1060, a GPU is not strictly required, but a decent amount of RAM may be necessary in order to load the model and the dataset. To better visualize this README offline the use of `grip` is suggested:
+This repository contains the official implementation of the paper: 
+
+"Y-Autoencoders: disentangling latent representations via sequential-encoding", Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten. Arxiv 2019.
+
+Please cite this paper if you use the code in this repository as part of a published research project.
+
+This code allows reproducing the quantitative results reported in the paper. In particular the ablation experiment (Section 3.2) and the comparison against baselines experiment (Section 3.3).
+
+Requirements
+---------------
+The code has been tested on `Ubuntu 18.04.2 LTS`, with `Python 2.7` , `Tensorflow 1.10` and `Numpy 1.15.1`. In the test phase `OpenCV 3.4.3.18` and `Scikit-image 0.14.2` have been used to manipulate and visualize the samples. Even though the training and test has been performend on the GeForce GTX 1060, a GPU is not strictly required, but a decent amount of RAM may be necessary in order to load the model and the dataset. To better visualize this README offline the use of `grip` is suggested:
 
 ```
 pip install grip
@@ -9,10 +17,6 @@ grip ./README.md
 ```
 
 This will allow to visualize the README offline directly from the browser.
-
-
-Requirements
----------------
 
 To install Tensorflow GPU version 1.10 run this command from `pip`:
 ```
@@ -172,3 +176,16 @@ python test.py --arch="lenet" --type="accuracy" --batch=30000 --resume="./result
 The command will print the loss and accuracy on this dataset. Moreover, a CSV file will be stored in the subdir `test_gendata_accuracy` in the `--path` folder.
 The parameter `batch` define how many random samples to take from the gendata dataset, depending on your machine you can increase or decrease this value (the maximum size of the artificial dataset is 100000 features).
 
+
+License
+=========
+
+MIT License
+
+Copyright (c) 2019 Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
