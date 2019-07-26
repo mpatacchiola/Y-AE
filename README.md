@@ -1,7 +1,7 @@
 
 This repository contains the official implementation of the paper: 
 
-"Y-Autoencoders: disentangling latent representations via sequential-encoding", Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten. Arxiv 2019. [download paper](https://arxiv.org/pdf/1907.10949.pdf)
+"Y-Autoencoders: disentangling latent representations via sequential-encoding", Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten. Arxiv 2019. [[download paper]](https://arxiv.org/pdf/1907.10949.pdf)
 
 Please cite this paper if you use the code in this repository as part of a published research project:
 
@@ -19,7 +19,7 @@ This code allows reproducing the quantitative results reported in the paper. In 
 Requirements
 ============
 
-The code has been tested on `Ubuntu 18.04.2 LTS`, with `Python 2.7` , `Tensorflow 1.10` and `Numpy 1.15.1`. In the test phase `OpenCV 3.4.3.18` and `Scikit-image 0.14.2` have been used to manipulate and visualize the samples. Even though the training and test has been performend on the GeForce GTX 1060, a GPU is not strictly required, but a decent amount of RAM may be necessary in order to load the model and the dataset. To better visualize this README offline the use of `grip` is suggested:
+The code has been tested on `Ubuntu 18.04.2 LTS`, with `Python 2.7` , `Tensorflow 1.10` and `Numpy 1.15.1`. In the test phase `OpenCV 3.4.3.18` and `Scikit-image 0.14.2` have been used to manipulate and visualize the samples. We reccommend the use of a virtual environment (e.g. [conda](https://docs.conda.io/en/latest/)) to setup all the packages. Even though training and test have been performend on the GeForce GTX 1060, a GPU is not strictly required, but a decent amount of RAM may be necessary in order to load the model and the dataset. To better visualize this README offline the use of `grip` is suggested:
 
 ```
 pip install grip
@@ -39,7 +39,7 @@ Otherwise you can install the CPU version:
 pip install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.10.0-cp27-none-linux_x86_64.whl
 ```
 
-The other packages can also be installed with `pip`:
+Additional packages can also be installed with `pip`:
 
 ```
 pip install opencv-python==3.4.3
@@ -116,6 +116,24 @@ python train.py --arch="cae"
 python train.py --arch="cae" --epochs=20 --implicit_units=16 --wdecay=0.0001
 ```
 
+**adversarial-AE + regularization**
+
+```
+python train.py --arch="aae" --epochs=20 --implicit_units=16 --wdecay=0.0001
+```
+
+**VAE**
+
+```
+python train.py --arch="vae"
+```
+
+**beta-VAE**
+
+```
+python train.py --arch="vae" --beta=2.0
+```
+
 Note that the folders in `./results` are automatically named to separate the different conditions. The logs are saved in the `log` subdir and they can be visualized through tensorboard:
 
 ```
@@ -161,7 +179,7 @@ For instance to generate the data for a regularized cAE you may have to run some
 python test.py --arch="cae" --implicit_units=16 --type="gendata" --resume="./results/cae_ep10_wdecay0.0001_units16/model/131315_27032019_4679/model.ckpt" --path="./results/cae_ep10_wdecay0.0001_units16"
 ```
 
-This will create a new folder named `gendata` with numpy features and labels of the artificial dataset. Those can be visualized with matplotlib. The artificial data can also be used for testing the accuracy of an external classification model, in order to verify the quality of the samples.
+This will create a new folder named `gendata` with numpy features and labels of the artificial dataset. Those can be visualized with matplotlib. The artificial data can also be used for testing the accuracy of an external classifier, in order to verify the quality of the samples.
 
 Metrics
 --------
