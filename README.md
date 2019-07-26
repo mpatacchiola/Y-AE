@@ -1,4 +1,8 @@
 
+<p align="center">
+<img src="etc/img/fig_samples.png" width="800">
+</p>
+
 This repository contains the official implementation of the paper: 
 
 "Y-Autoencoders: disentangling latent representations via sequential-encoding", Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten. Arxiv 2019. [[download paper]](https://arxiv.org/pdf/1907.10949.pdf)
