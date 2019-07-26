@@ -1,14 +1,24 @@
 
 This repository contains the official implementation of the paper: 
 
-"Y-Autoencoders: disentangling latent representations via sequential-encoding", Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten. Arxiv 2019.
+"Y-Autoencoders: disentangling latent representations via sequential-encoding", Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten. Arxiv 2019. [download paper](https://arxiv.org/pdf/1907.10949.pdf)
 
-Please cite this paper if you use the code in this repository as part of a published research project.
+Please cite this paper if you use the code in this repository as part of a published research project:
+
+```
+@article{patacchiola2019yautoencoders,
+  title={Y-Autoencoders: disentangling latent representations via sequential-encoding},
+  author={Patacchiola, Massimiliano and Fox-Roberts, Patrick and Rosten, Edward},
+  journal={arXiv preprint arXiv:1907.10949},
+  year={2019}
+}
+```
 
 This code allows reproducing the quantitative results reported in the paper. In particular the ablation experiment (Section 3.2) and the comparison against baselines experiment (Section 3.3).
 
 Requirements
----------------
+============
+
 The code has been tested on `Ubuntu 18.04.2 LTS`, with `Python 2.7` , `Tensorflow 1.10` and `Numpy 1.15.1`. In the test phase `OpenCV 3.4.3.18` and `Scikit-image 0.14.2` have been used to manipulate and visualize the samples. Even though the training and test has been performend on the GeForce GTX 1060, a GPU is not strictly required, but a decent amount of RAM may be necessary in order to load the model and the dataset. To better visualize this README offline the use of `grip` is suggested:
 
 ```
