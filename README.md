@@ -5,15 +5,17 @@
 
 This repository contains the official implementation of the paper: 
 
-"Y-Autoencoders: disentangling latent representations via sequential-encoding", Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten. Pattern Recognition Letters. [[download paper from arxiv]](https://arxiv.org/pdf/1907.10949.pdf)
+*"Y-Autoencoders: disentangling latent representations via sequential-encoding"*, Massimiliano Patacchiola, Patrick Fox-Roberts, Edward Rosten. Pattern Recognition Letters, vol. 140, pp. 59-65. [[download paper from arxiv]](https://arxiv.org/pdf/1907.10949.pdf)
 
-Please cite this paper if you use the code in this repository as part of a published research project:
+Please, cite this paper if you use the code in this repository as part of a published research project:
 
 ```
 @article{patacchiola2020yautoencoders,
   title={Y-Autoencoders: disentangling latent representations via sequential-encoding},
   author={Patacchiola, Massimiliano and Fox-Roberts, Patrick and Rosten, Edward},
   journal={Pattern Recognition Letters},
+  volume={140},
+  pages={59--65},
   year={2020}
 }
 ```
